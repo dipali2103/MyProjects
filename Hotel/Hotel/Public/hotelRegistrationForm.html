@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+    <head>
+       <title>Registration Form</title>
+       <link href="style.css" rel="stylesheet">
+	<link href="dist/css/bootstrap.css" rel="stylesheet">
+	  <link href="dist/css/font-awesome.css" rel="stylesheet">
+	  <script src="dist/js/jquery.min.js"></script>
+	  <script src="dist/js/bootstrap.js"></script>
+      <link rel="shortcut icon" href="assets/hotel-logo.jpg">
+      <script>
+        function RegisterClick(){
+            if(confirm("are you sure want to register ?")==true){
+                document.getElementById("lblName").innerHTML=document.getElementById("txtName").value;
+            document.getElementById("lblDate").innerHTML=document.getElementById("txtDate").value;
+            document.getElementById("lblDays").innerHTML=document.getElementById("txtDays").value;
+            document.getElementById("lblPersons").innerHTML=document.getElementById("txtPersons").value;
+            document.getElementById("lblAdvance").innerHTML=document.getElementById("txtAdvance").value;
+            document.getElementById("lblNumberofRooms").innerHTML=document.getElementById("txtNumberofRooms").value;
+            document.getElementById("lblIdentity").innerHTML=document.getElementById("txtIdentity").value;
+
+            var DeluxRoom = document.getElementById("delux");
+            var SuitRoom = document.getElementById("suit");
+
+            var AC= document.getElementById("ac");
+            var Locker= document.getElementById("locker");
+
+            var Room="";
+            var Amenities="";
+
+            var RoomCost=0;
+            var Advance=document.getElementById("txtAdvance").value;
+            var Days= document.getElementById("txtDays").value;
+            var Persons= document.getElementById("txtPersons").value;
+            var NumberofRooms= document.getElementById("txtNumberofRooms").value;
+            var AmenitiesCost=0;
+
+            if(DeluxRoom.checked){
+                Room=DeluxRoom.value;
+                RoomCost=2500;
+            }
+
+            if(SuitRoom.checked){
+                Room=SuitRoom.value;
+                RoomCost=4000;
+            }
+
+            if(AC.checked){
+                Amenities += AC.value;
+                AmenitiesCost+=1000;
+            }
+
+            if(Locker.checked){
+                Amenities+= Locker.value;
+                AmenitiesCost+=300;
+            }
+            document.getElementById("lblRoom").innerHTML=Room;
+            document.getElementById("lblAmenities").innerHTML= Amenities;
+            var PersonsCost=0;
+            if(Persons>2){
+               PersonsCost=1000*(Persons-2)
+            }
+            document.getElementById("lblBalance").innerHTML=NumberofRooms*[(RoomCost*Days)+PersonsCost+AmenitiesCost]-Advance + "Rs";
+
+            } else{
+               confirm("You Canceled");
+            }
+            
+           
+        }
+      </script>
+    </head>
+    <body class="container-fluid">
+        <header>
+            <H1><img src="../Public/images/hotel-logo.jpg" height="60px" width="60px"> HOTEL DELIGHT</H1>
+        <nav>
+            <a href="index.html">HOME</a>
+            <a href="hotelRegistrationForm.html">BOOK A ROOM</a>
+            <a href="menucard.html">MENU CARD</a>
+        </nav>
+        </header>
+        <h2 style="text-align:center">Hotel Registration Form</h2>
+        <form>
+            <h3>Customer Info</h3>
+            <dl>
+                <dt>Customer Name</dt>
+                <dd><input type="text" class="form-control" id="txtName"></dd>
+                <dt>Check In Date</dt>
+                <dd><input type="date" class="form-control" id="txtDate"></dd>
+                <dt>Total Number of Days</dt>
+                <dd><input type="number" class="form-control" id="txtDays"></dd>
+                <dt>Total number of Persons</dt>
+                <dd><input type="number" class="form-control" id="txtPersons">
+                <span>Upto 2 persons No extra charges. for every extra person 1000 on total amount</span></dd>
+                <dt>Total number of Rooms</dt>
+                <dd><input type="number" class="form-control" id="txtNumberofRooms"></dd>
+            </dl>
+            <h3>Select Room Type</h3>
+               <div id="roomType">
+                <figure>
+                    <img src="images/bed2.jpg" height="200px" width="200px">
+                    <figcaption><input type="radio" value="Delux-Room" name="room" id="delux" class="form-check"> Delux Room [&#8377 2500/-]</figcaption>
+                   </figure>
+                <figure>
+                    <img src="images/bed.jpg" height="200px" width="200px">
+                    <figcaption><input type="radio" value="Suit-Room" name="room" id="suit" class="form-check">Suit Room [&#8377 4000/-]</figcaption>
+                   </figure>
+               </div> 
+            <h3>Select Amenities</h3>
+            <div id="SelectAmenities">
+                <div><input type="checkbox" id="ac" class="form-check-input" value="AC"> A/C [&#8377 1000/-] </div>
+                <div><input type="checkbox" id="locker" class="form-check-input" value="Locker"> Locker [&#8377 300/-]</div>
+            </div>
+            <h3>Advance Amount</h3>
+            <dl>
+                <dt>Advance Amount</dt>
+                <dd><input type="number" class="form-control" id="txtAdvance" required></dd>
+            </dl>
+            <dl>
+                <dt>Identity Proof</dt>
+                <dd><input type="file" class="form-control" id="txtIdentity"></dd>
+            </dl>
+        </form>
+        <div align="center"><button class="btn btn-danger" onclick="RegisterClick()">Register</button></div>
+            <h3 align="center">Your Bill Summary </h3>
+            <dl>
+                <dt>Customer Name</dt>
+                <dd id="lblName"></dd>
+                <dt>Check in Date</dt>
+                <dd id="lblDate"></dd>
+                <dt>Total Number of days</dt>
+                <dd id="lblDays"></dd>
+                <dt>Total Number of Persons</dt>
+                <dd id="lblPersons"></dd>
+                <dt>Room Type</dt>
+                <dd id="lblRoom"></dd>
+                <dt>Amenities</dt>
+                <dd id="lblAmenities"></dd>
+                <dt>Advance Amount</dt>
+                <dd id="lblAdvance"></dd>
+                <dt>Total No Rooms</dt>
+                <dd id="lblNumberofRooms"></dd>
+                <dt>Balance Amount</dt>
+                <dd id="lblBalance"></dd>
+                <dt>Identity Proof</dt>
+                <dd id="lblIdentity"></dd>
+            </dl>
+
+            <footer>
+                <div class="row">
+                   <div class="col-sm-4">
+                     <p style="line-height:25px; text-align:justify; margin-left:30px;">
+                         <br><i class="fa fa-address-book"></i> <u>Address:- </u>
+                         <br> Hotel Delight, <br> Near ICICI bank, <br> Rammurthy nagar, <br> Bangalore - 560016 <br>
+                        </p>
+                         
+                   </div>
+                   <div class="col-sm-4">
+                     <p style="line-height:25px; text-align:justify"><br>
+                         <u> Contact Us:-</u> <br>
+                           Mobile Number: <i class="fa fa-phone"></i> 9898002020 <br>
+                           MailId:  deluxRestaurant@gmail.com <br> 
+                           Website:<i class="fa fa-globe"></i><a href="https://dipali2103.github.io/HotelDelight/">https://dipali2103.github.io/HotelDelight/</a>
+                       </p>
+                   </div>
+                   <div class="col-sm-4">
+                     <p style="line-height:25px; text-align:justify"><br>
+                         <u> Popular Aminities:-</u> <br>
+                       <i class="fa fa-coffee"></i> Breakfast  <br> 
+                       <i class="fa fa-wifi"></i> Wi-Fi  <br> 
+                       <i class="fa fa-car"></i> Parking  <br> 
+                       </p>
+                   </div>
+                </div>
+             </footer>
+    </body>
+</html>
