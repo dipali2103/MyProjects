@@ -1,0 +1,101 @@
+header{
+    padding: 10px;
+    background-color: orange;
+    color:white;
+    text-align:center;
+}
+
+form{
+    align-items:center;
+    text-align:center;
+    margin-left:100px;
+    margin-right:100px;
+    border:2px solid black;
+}
+
+h3{
+    padding: 8px;
+    justify-content: center;
+    align-items: center;
+    background-color:rgb(111, 111, 211);
+}
+
+h1{
+   color: rgb(68, 7, 7);
+   text-shadow: 2px 2px 2px salmon;
+}
+
+dl{
+    padding: 10px;
+    display:grid;
+    grid-template-columns:4fr 8fr;
+}
+
+dt{
+    padding: 10px;
+}
+
+dd{
+    padding: 10px;
+}
+
+button{
+    width: 50%;
+}
+
+#roomType,#SelectAmenities{
+    display:grid;
+    grid-template-columns:6fr 6fr;
+}
+
+nav{
+    padding: 10px;
+    background-color: rgb(45, 43, 43);
+}
+
+a{
+    margin-left:40px;
+}
+
+#menucard{
+    background-color: rgb(197, 71, 71);
+    border: 2px solid black;
+}
+
+h4{
+    text-align: center;
+}
+
+footer{
+    background:#232f3e;
+    color:white;
+    height:200px;
+    text-align:center;
+    margin:0px;
+  }
+
+#loginform{
+    width:600px;  
+    margin:20px;
+    text-align: center;
+}
+
+figure{
+    padding:30px;
+    margin:30px;
+} 
+
+figcaption{
+    text-align: center;
+}
+
+#RoomImages{
+    display:flex;
+    flex-wrap:wrap;
+}
+
+p{
+    line-height:35px;
+    padding:40px;
+    text-indent:70px;
+}
